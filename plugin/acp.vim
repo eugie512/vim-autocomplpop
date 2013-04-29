@@ -135,6 +135,8 @@ endfunction
 " }}}1
 "=============================================================================
 " INITIALIZATION {{{1
+hi AutoComplPopColorDefaultForward  ctermfg=Black ctermbg=Cyan guibg=LightCyan guifg=Black
+hi AutoComplPopColorDefaultReverse  ctermfg=Black ctermbg=Magenta guibg=LightMagenta guifg=Black
 
 "-----------------------------------------------------------------------------
 call l9#defineVariableDefault('g:acp_enableAtStartup', 1)
@@ -143,6 +145,8 @@ call l9#defineVariableDefault('g:acp_ignorecaseOption', 1)
 call l9#defineVariableDefault('g:acp_autoselectFirstCompletion', 1)
 call l9#defineVariableDefault('g:acp_completeOption', '.,w,b,k')
 call l9#defineVariableDefault('g:acp_completeoptPreview', 0)
+call l9#defineVariableDefault('g:acp_colorForward', 'AutoComplPopColorDefaultForward')
+call l9#defineVariableDefault('g:acp_colorReverse', 'AutoComplPopColorDefaultReverse')
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedFunction', '')
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedMeets', '')
 call l9#defineVariableDefault('g:acp_behaviorSnipmateLength', -1)
