@@ -149,6 +149,7 @@ call l9#defineVariableDefault('g:acp_colorForward', 'AutoComplPopColorDefaultFor
 call l9#defineVariableDefault('g:acp_colorReverse', 'AutoComplPopColorDefaultReverse')
 call l9#defineVariableDefault('g:acp_nextItemMapping', ['<TAB>', '\<lt>TAB>'])
 call l9#defineVariableDefault('g:acp_previousItemMapping', ['<S-TAB>', '\<lt>S-TAB>'])
+call l9#defineVariableDefault('g:acp_reverseMappingInReverseMenu', 1)
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedFunction', '')
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedMeets', '')
 call l9#defineVariableDefault('g:acp_behaviorSnipmateLength', -1)
