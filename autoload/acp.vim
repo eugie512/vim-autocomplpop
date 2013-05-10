@@ -26,6 +26,7 @@ function acp#enable()
     call s:mapForMappingDriven()
   else
     autocmd AcpGlobalAutoCommand CursorMovedI * call s:feedPopup()
+    autocmd AcpGlobalAutoCommand InsertCharPre * call s:reFeedCond()
   endif
 
   nnoremap <silent> i i<C-r>=<SID>feedPopup()<CR>
@@ -311,6 +312,29 @@ endfunction
 " LOCAL FUNCTIONS: {{{1
 
 "
+function s:wantAlwaysReFeed()
+    " user has requested to always refeed after every char
+    if exists("b:acp_refeed_after_every_char")
+        if b:acp_refeed_after_every_char
+            return 1
+        endif
+    elseif exists("g:acp_refeed_after_every_char")
+        if g:acp_refeed_after_every_char
+            return 1
+        endif
+    endif
+    return 0
+endfun
+
+
+"
+function s:reFeedCond()
+    if s:wantAlwaysReFeed()
+        call s:feedPopup()
+    endif
+endfun
+
+"
 function s:mapForMappingDriven()
   call s:unmapForMappingDriven()
   let s:keysMappingDriven = [
@@ -409,7 +433,10 @@ endfunction
 function s:feedPopup()
   " NOTE: CursorMovedI is not triggered while the popup menu is visible. And
   "       it will be triggered when popup menu is disappeared.
-  if s:lockCount > 0 || pumvisible() || &paste
+  if s:lockCount > 0 || &paste
+    return ''
+  endif
+  if !s:wantAlwaysReFeed() && pumvisible()
     return ''
   endif
   if exists('s:behavsCurrent[s:iBehavs].onPopupClose')
