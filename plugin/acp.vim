@@ -152,6 +152,7 @@ call l9#defineVariableDefault('g:acp_previousItemMapping', ['<S-TAB>', '\<lt>S-T
 call l9#defineVariableDefault('g:acp_reverseMappingInReverseMenu', 1)
 call l9#defineVariableDefault('g:acp_refeed_after_every_char', 0)
 call l9#defineVariableDefault('g:acp_refeed_checkpoints', [])
+call l9#defineVariableDefault('g:acp_keyword_chars_for_checkpoint', '')
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedFunction', '')
 call l9#defineVariableDefault('g:acp_behaviorUserDefinedMeets', '')
 call l9#defineVariableDefault('g:acp_behaviorSnipmateLength', -1)
